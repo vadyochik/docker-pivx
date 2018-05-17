@@ -31,9 +31,9 @@ RUN echo "PIVX binaries have been installed!" >&2 && \
     echo "Stripping the binaries..." >&2 && \
     strip /usr/local/bin/* && \
     echo "Stripping done!" >&2 && \
-    ls -la /usr/local/bin/ && \
-    echo "Running PIVX tests.." >&2 && \
-    /usr/local/bin/test_pivx
+    ls -la /usr/local/bin/
+#    echo "Running PIVX tests.." >&2 && \
+#    /usr/local/bin/test_pivx
 
 FROM alpine:3.7
 ARG PIVX_UID=51472

@@ -7,32 +7,39 @@
 ## Examples
 
 Build Debian based image and tag it with PIVX current version and "latest" tag:
-
-`docker build -t vadyochik/pivx:3.1.0.2 .`
-`docker tag vadyochik/pivx:3.1.0.2 vadyochik/pivx:latest`
+```
+docker build -t vadyochik/pivx:3.1.0.2 .
+docker tag vadyochik/pivx:3.1.0.2 vadyochik/pivx:latest
+```
 
 Build Alpine based image and tag it with PIVX current version and "alpine" tag:
-
-`docker build -f Dockerfile.alpine -t vadyochik/pivx:3.1.0.2-alpine .`
-`docker tag vadyochik/pivx:3.1.0.2-alpine vadyochik/pivx:alpine`
+```
+docker build -f Dockerfile.alpine -t vadyochik/pivx:3.1.0.2-alpine .
+docker tag vadyochik/pivx:3.1.0.2-alpine vadyochik/pivx:alpine
+```
 
 Run pivxd process in container as simple as:
-
-`docker run -d --name pivx vadyochik/pivx` 
+```
+docker run -d --name pivx vadyochik/pivx
+```
 
 or extend the above command to smthng like:
-
-`docker run -d --name pivx --rm -p 51472:51472 -v pivxdata:/pivx/.pivx vadyochik/pivx` 
+```
+docker run -d --name pivx --rm -p 51472:51472 -v pivxdata:/pivx/.pivx vadyochik/pivx 
+```
 
 Check container logs (with "Follow log output"):
-
-`docker logs -f pivx`
+```
+docker logs -f pivx
+```
 
 Get info from running daemon with pivx-cli:
-
-`docker exec pivx pivx-cli getinfo`
+```
+docker exec pivx pivx-cli getinfo
+```
 
 Get into the shell of the running container:
-
-`docker exec -it pivx /bin/bash`
+```
+docker exec -it pivx /bin/bash
+```
 
