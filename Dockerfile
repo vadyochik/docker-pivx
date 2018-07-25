@@ -1,6 +1,7 @@
 FROM debian:stretch-slim
 LABEL maintainer="b00za@pm.me"
 
+ARG PIVX_UID=51472
 ENV PIVX_VERSION=3.1.0.2
 
 RUN apt-get -qq update && \
@@ -20,7 +21,7 @@ RUN wget -nv https://github.com/PIVX-Project/PIVX/releases/download/v$PIVX_VERSI
     ln -sv /opt/pivx/bin/pivx-tx /usr/local/bin/pivx-tx && \
     rm -v /opt/pivx/bin/pivx-qt /opt/pivx/bin/test_pivx /opt/pivx/bin/test_pivx-qt \
           pivx-$PIVX_VERSION-x86_64-linux-gnu.tar.gz SHA256SUMS.asc && \
-    useradd --system --create-home --home-dir /pivx pivx && \
+    useradd --uid $PIVX_UID --create-home --home-dir /pivx pivx && \
     mkdir -m 0750 /pivx/.pivx && \
     chown -R pivx:pivx /pivx
 
