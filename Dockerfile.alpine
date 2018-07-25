@@ -1,6 +1,6 @@
-FROM alpine:3.7 AS builder
+FROM alpine:3.8 AS builder
 ARG PIVX_REPO=https://github.com/PIVX-Project/PIVX.git
-ARG PIVX_VERSION=v3.1.0.3
+ARG PIVX_VERSION=v3.1.1
 ARG DB_VERSION=4.8.30.NC
 RUN apk update && \
     apk add alpine-sdk curl file binutils autoconf automake \
@@ -35,7 +35,7 @@ RUN echo "PIVX binaries have been installed!" >&2 && \
 #    echo "Running PIVX tests.." >&2 && \
 #    /usr/local/bin/test_pivx
 
-FROM alpine:3.7
+FROM alpine:3.8
 ARG PIVX_UID=51472
 ARG PIVX_USER=pivx
 ARG PIVX_HOME=/pivx

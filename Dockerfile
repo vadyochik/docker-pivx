@@ -2,7 +2,7 @@ FROM debian:stretch-slim
 LABEL maintainer="b00za@pm.me"
 
 ARG PIVX_UID=51472
-ENV PIVX_VERSION=3.1.0.2
+ENV PIVX_VERSION=3.1.1
 
 RUN apt-get -qq update && \
     apt-get -yq install wget ca-certificates && \
@@ -15,7 +15,7 @@ RUN wget -nv https://github.com/PIVX-Project/PIVX/releases/download/v$PIVX_VERSI
     gpgv SHA256SUMS.asc && \
     sha256sum -c --ignore-missing SHA256SUMS.asc && \
     tar -C /opt -xvzf pivx-$PIVX_VERSION-x86_64-linux-gnu.tar.gz && \
-    ln -sv pivx-3.1.0 /opt/pivx && \
+    ln -sv pivx-$PIVX_VERSION /opt/pivx && \
     ln -sv /opt/pivx/bin/pivxd /usr/local/bin/pivxd && \
     ln -sv /opt/pivx/bin/pivx-cli /usr/local/bin/pivx-cli && \
     ln -sv /opt/pivx/bin/pivx-tx /usr/local/bin/pivx-tx && \
